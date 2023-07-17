@@ -1,7 +1,7 @@
 // import { useState } from "react";
 
 import Header from "./assets/components/Header";
-import Input from "./assets/components/Input";
+import Todo from "./assets/components/Todo";
 
 function App() {
     // const [count, setCount] = useState(0);
@@ -9,7 +9,7 @@ function App() {
     return (
         <>
             <Header></Header>
-            <Input></Input>
+            <Todo></Todo>
         </>
     );
 }
