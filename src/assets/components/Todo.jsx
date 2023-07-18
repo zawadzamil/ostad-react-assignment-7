@@ -38,9 +38,7 @@ export default function Todo() {
     const updatedTaskList = (e, id) => {
         const tasksList = tasks;
         const updatedList = tasksList.map((item) => {
-            if (item.id === id) {
-                item.completed = e.target.checked;
-            }
+            item.completed = item.id === id ? e.target.checked : item.completed;
             return item;
         })
         setTasks(updatedList)
