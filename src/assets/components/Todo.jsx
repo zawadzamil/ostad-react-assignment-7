@@ -58,6 +58,7 @@ export default function Todo() {
                     <Input
                         handelChange={handelChange}
                         handelSubmit={handelSubmit}
+                        message={message ?? ''}
                     ></Input>
                     <List
                         taskList={tasks}

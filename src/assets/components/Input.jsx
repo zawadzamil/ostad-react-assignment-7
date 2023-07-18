@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-export default function Input({ handelSubmit, handelChange }) {
+export default function Input({ handelSubmit, handelChange, message }) {
     return (
         <Fragment>
             <div className="col-md-4">
@@ -21,6 +21,7 @@ export default function Input({ handelSubmit, handelChange }) {
                             </Form.Label>
                             <Form.Control
                                 as="textarea"
+                                value={message}
                                 onChange={(event) => {
                                     handelChange(event);
                                 }}
