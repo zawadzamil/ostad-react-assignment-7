@@ -4,11 +4,10 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 export default function Input({ handelSubmit, handelChange }) {
-
     return (
         <Fragment>
             <div className="col-md-4">
-                <Form className=" ">
+                <Form className="mt-4 ">
                     <Form.Group
                         className="mb-3"
                         controlId="exampleForm.ControlInput1"
