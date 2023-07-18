@@ -37,8 +37,22 @@ export default function Todo() {
 
     const updatedTaskList = (e, id) => {
         const tasksList = tasks;
-        console.log(tasksList);
+        const updatedList = tasksList.map((item) => {
+            if (item.id === id) {
+                item.completed = e.target.checked;
+            }
+            return item;
+        })
+        setTasks(updatedList)
+        localStorage.setItem("tasks", JSON.stringify(updatedList));
     };
+
+    const removeFromList = (id) => {
+        const tasksList = tasks;
+        const updatedList = tasksList.filter((item) => item.id != id)
+        setTasks(updatedList)
+        localStorage.setItem("tasks", JSON.stringify(updatedList));
+    }
     return (
         <Fragment>
             <div className="container">
@@ -50,6 +64,7 @@ export default function Todo() {
                     <List
                         taskList={tasks}
                         updatedTaskList={updatedTaskList}
+                        removeFromList={removeFromList}
                     ></List>
                 </div>
             </div>

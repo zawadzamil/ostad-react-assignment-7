@@ -1,14 +1,15 @@
 import "bootstrap/dist/css/bootstrap.css";
 import { Fragment } from "react";
 import { Badge } from "react-bootstrap";
+import CloseButton from 'react-bootstrap/CloseButton';
 import Form from "react-bootstrap/Form";
 import ListGroup from "react-bootstrap/ListGroup";
 
-export default function List({ taskList, updatedTaskList }) {
+export default function List({ taskList, updatedTaskList, removeFromList }) {
     return (
         <Fragment>
             <div className="col-md-6">
-                <h3 className="text-center display-6 fw-bold">Task List</h3>
+                <h3 className="text-center display-6 fw-bold">Todo List</h3>
                 <div className="todoList">
                     <ListGroup>
                         {taskList.length > 0 &&
@@ -21,10 +22,11 @@ export default function List({ taskList, updatedTaskList }) {
                                             className="pl-5"
                                         >
                                             <Form.Check.Input
+                                                defaultChecked={task && task.completed}
                                                 onChange={(e) =>
-                                                    // updatedTaskList(task.id)
                                                     updatedTaskList(e, task.id)
                                                 }
+
                                             />
                                             <Form.Check.Label>
                                                 {task && task.title}
@@ -32,17 +34,18 @@ export default function List({ taskList, updatedTaskList }) {
                                         </Form.Check>
                                         <div className="button">
                                             <Badge
-                                                className={`task-badge p-2 ${
-                                                    task && task.completed
-                                                        ? "bg-success"
-                                                        : "bg-danger"
-                                                }`}
+                                                className={`task-badge p-2 ${task && task.completed
+                                                    ? "bg-success"
+                                                    : "bg-danger"
+                                                    }`}
                                                 text="light"
                                             >
                                                 {task && task.completed
                                                     ? "Completed"
                                                     : "Pending"}
                                             </Badge>
+                                            <CloseButton onClick={() => removeFromList((task && task.id) || 0)} />
+
                                         </div>
                                     </div>
                                 </ListGroup.Item>

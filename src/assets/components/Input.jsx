@@ -17,7 +17,7 @@ export default function Input({ handelSubmit, handelChange }) {
                             controlId="exampleForm.ControlTextarea1"
                         >
                             <Form.Label>
-                                <h5>Insert a Task</h5>
+                                <h5>Insert a Todo</h5>
                             </Form.Label>
                             <Form.Control
                                 as="textarea"
